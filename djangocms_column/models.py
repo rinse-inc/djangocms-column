@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.six import python_2_unicode_compatible
 
 from cms.models import CMSPlugin
 
@@ -18,6 +19,7 @@ else:
     )
 
 
+@python_2_unicode_compatible
 class MultiColumns(CMSPlugin):
     """
     A plugin that has sub Column classes
@@ -34,6 +36,7 @@ class MultiColumns(CMSPlugin):
         return _(u"%s columns") % len(plugins)
 
 
+@python_2_unicode_compatible
 class Column(CMSPlugin):
     """
     A Column for the MultiColumns Plugin
